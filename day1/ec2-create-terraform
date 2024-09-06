@@ -1,0 +1,18 @@
+node {
+        stage('Clone') {
+         git branch: 'main', url: 'https://github.com/yansr90/terraform9am.git'   
+        
+    }
+         stage('change directory and run terraform cmd') {
+             dir('day1') {
+                 sh '''
+                 terraform init
+                 terraform plan
+                 terraform ${action} -auto-approve
+                 '''
+    
+}
+            
+        
+    }
+}
